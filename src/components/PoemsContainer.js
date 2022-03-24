@@ -11,8 +11,6 @@ function PoemsContainer({ poems, handleClick, isRead}) {
           title={p.title}
           content={p.content}
           author={p.author}
-          handleClick={handleClick}
-          isRead={isRead}
         />
       ))}
     </div>

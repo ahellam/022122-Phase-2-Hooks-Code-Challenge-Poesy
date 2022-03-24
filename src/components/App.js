@@ -5,7 +5,6 @@ import NewPoemForm from "./NewPoemForm";
 const poemsAPI = "http://localhost:8004/poems";
 function App() {
   const [poems, setPoems] = useState([]);
-  const [isRead, setIsRead] = useState(false)
   const [showForm, setShowForm] = useState(false)
 
   useEffect(() => {
@@ -18,13 +17,6 @@ function App() {
     setPoems([...poems, newPoem])
   }
 
-  function toggleIsRead(id){
-    const newPoems = [...poems];
-    setPoems(
-      newPoems.map((poem) => 
-      id === poem.id ? {...poem, isRead: true} : poem )
-    )
-  }
 
   return (
     <div className="app">
@@ -32,7 +24,7 @@ function App() {
         <button onClick={() => setShowForm(!showForm)}>Show/hide new poem form</button>
         {showForm ? <NewPoemForm onAddPoem={handleAddPoem}/> : null}
       </div>
-      <PoemsContainer poems={poems} handleClick={toggleIsRead} isRead={isRead}/>
+      <PoemsContainer poems={poems} />
     </div>
   );
 }
