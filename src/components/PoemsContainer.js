@@ -1,7 +1,7 @@
 import React from "react";
 import Poem from "./Poem";
 
-function PoemsContainer({ poems, handleClick, isRead}) {
+function PoemsContainer({ poems }) {
   return (
     <div className="poems-container">
       {poems.map((p) => (

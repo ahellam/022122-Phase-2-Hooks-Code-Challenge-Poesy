@@ -14,7 +14,18 @@ function NewPoemForm({onAddPoem}) {
       id: Math.random() 
     }
     // console.log(formData)
-    onAddPoem(formData)
+
+    fetch("http://localhost:8004/poems", {
+      method: "POST", 
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)      
+    })
+    .then(res => res.json())
+    .then(onAddPoem(formData))
+
+    
     setTitle("")
     setAuthor("")
     setContent("")
