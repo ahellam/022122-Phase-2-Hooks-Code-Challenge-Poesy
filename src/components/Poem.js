@@ -1,14 +1,15 @@
 import React from "react";
 
-function Poem() {
+function Poem({title, content, author, id, handleClick, isRead}) {
+  
   return (
     <div>
-      <h3>Title</h3>
-      <p>Content</p>
+      <h3>{title}</h3>
+      <p>{content}</p>
       <p>
-        <strong>- By Author</strong>
+        <strong>- By {author}</strong>
       </p>
-      <button>Mark as read</button>
+      <button onClick={() => handleClick(id)}>{isRead? "read" : "mark as read"}</button>
     </div>
   );
 }
